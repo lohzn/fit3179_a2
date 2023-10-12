@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data\\jpn_eq_16_18.csv"
+  },
+  "transform": [
+    { "calculate": "year(datum.time)", "as": "year" },
+    { "filter": "datum.year === year" }
+  ],
+  "params": [
+    {
+      "name": "year",
+      "value": 2016,
+      "bind": {
+        "input": "range",
+        "min": 2016,
+        "max": 2018,
+        "step": 1,
+        "name": "Year"
+      }
+    },
+    {
+      "name": "hover",
+      "select": { "type": "point", "fields": ["longitude", "latitude"] }
+    }
+  ],
+  "title": {
+    "text": "Earthquake Yearly Heatmap",
+    "anchor": "middle",
+    "color": "#333333",
+    "fontSize": 24
+  },
+  "mark": {
+    "type": "rect",
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "longitude",
+      "type": "quantitative",
+      "bin": true,
+      "axis": { "title": "Longitude", "format": ".1f", "grid": true }
+    },
+    "y": {
+      "field": "latitude",
+      "type": "quantitative",
+      "bin": true,
+      "axis": { "title": "Latitude", "format": ".1f", "grid": true }
+    },
+    "color": {
+      "field": "mag",
+      "type": "quantitative",
+      "aggregate": "max",
+      "scale": {
+        "scheme": "tealblues",
+        "domain": [2, 8]
+      },
+      "legend": { "title": "Magnitude (Max)" }
+    },
+    "opacity": {
+      "value": 1
+    }
+  },
+  "config": {
+    "scale": { "bandPaddingInner": 0 }
+  },
+  "width": "container",
+  "height": 540
+}

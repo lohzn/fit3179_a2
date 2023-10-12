@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 650,
+  "title": {
+    "text": "Earthquakes in the Region of Japan between 2016 and 2018",
+    "anchor": "middle",
+    "color": "#333333",
+    "fontSize": 24
+  },
+  "projection": { "type": "identity", "reflectY": true },
+  "params": [
+    {
+      "name": "year",
+      "value": 2016,
+      "bind": {
+        "input": "range",
+        "min": 2016,
+        "max": 2018,
+        "step": 1,
+        "name": "Year"
+      }
+    }
+  ],
+
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/js/ne_2.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_0_countries_jpn"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "mediumseagreen",
+        "stroke": "black",
+        "strokeWidth": 0.3
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/data/jpn_eq_16_18.csv"
+      },
+      "transform": [{ "calculate": "year(datum.time)", "as": "year" }],
+      "mark": { "type": "circle", "tooltip": { "content": "data" } },
+      "encoding": {
+        "longitude": { "field": "longitude", "type": "quantitative" },
+        "latitude": { "field": "latitude", "type": "quantitative" },
+        "opacity": {
+          "condition": {"test": "(datum.year === year)", 
+                        "value": 1},
+          "value": 0
+        },
+        "size": {
+          "field": "mag",
+          "type": "quantitative",
+          "title": "Magnitude (Richter scale)",
+          "scale": { "domain": [4, 8] }
+        },
+        "color": {
+          "field": "depth",
+          "type": "quantitative",
+          "title": "Depth in km",
+          "scale": { "scheme": "darkblue", "reverse": true }
+        },
+        "tooltip": [
+          { "field": "mag", "type": "quantitative", "title": "Magnitude" },
+          {
+            "field": "longitude",
+            "type": "quantitative",
+            "title": "Longitude"
+          },
+          { "field": "latitude", "type": "quantitative", "title": "Latitude" },
+          { "field": "depth", "type": "quantitative", "title": "Depth" },
+          { "field": "place", "type": "nominal", "title": "Place" },
+          {
+            "field": "time",
+            "type": "temporal",
+            "format": "%Y-%m-%d %H:%M:%S",
+            "title": "Time"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/js/ne_2.json",
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_5" }
+      },
+      "mark": { "type": "geoshape", "stroke": "black", "opacity": 0.3 }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://images.pexels.com/photos/4321565/pexels-photo-4321565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* Replace with your image URL */
+  background-size: cover;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  background-color: #c5ecfe;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart {
+  width: 100%;
+  background-color: #d9f7ff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.half {
+  width: calc(50% - 10px);
+}
+
+h1,
+h2 {
+  color: #1890ff;
+  text-align: center;
+}
+
+p {
+  color: #595959;
+  margin-left: 20px;
+  background-color: #f0f5ff; /* Light blue background */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for emphasis */
+}

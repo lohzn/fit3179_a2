@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data\\jpn_eq_16_18.csv"
+  },
+  "width": "container",
+  "height": 600,
+  "transform": [{ "calculate": "year(datum.time)", "as": "year" }],
+  "title": {
+    "text": "Magnitude vs Depth Line Chart",
+    "anchor": "middle",
+    "color": "#333333",
+    "fontSize": 24
+  },
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "depth",
+      "type": "quantitative",
+      "title": "Depth (km)"
+    },
+    "y": {
+      "field": "mag",
+      "type": "quantitative",
+      "aggregate": "max",
+      "title": "Magnitude (Richter scale))",
+      "scale": { "domain": [4.4, 8] }
+    },
+    "color": {
+      "field": "year",
+      "type": "nominal",
+      "title": "Year"
+    }
+  }
+}

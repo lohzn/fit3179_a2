@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/data/jpn_eq_16_18.csv"
+    "url": "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/data/jpn_eq_16_18.csv"
   },
   "width": "container",
   "height": 600,

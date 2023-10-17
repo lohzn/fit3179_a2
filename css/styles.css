@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-image: url("https://images.pexels.com/photos/4321565/pexels-photo-4321565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* Replace with your image URL */
   background-size: cover;
 }
@@ -41,13 +41,20 @@ h1,
 h2 {
   color: #1890ff;
   text-align: center;
+  text-transform: uppercase;
+}
+
+h1{
+  color: darkblue;
 }
 
 p {
   color: #595959;
   margin-left: 20px;
-  background-color: #f0f5ff; /* Light blue background */
+  background-color: #f0f5ff;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for emphasis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 18.5px;
 }

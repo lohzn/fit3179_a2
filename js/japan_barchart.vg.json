@@ -4,11 +4,11 @@
     "url": "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/data/earthquake_counts.csv"
   },
   "width": "container",
-  "height": 540,
+  "height": 350,
   "layer": [
     {
       "title": {
-        "text": "Earthquake Monthly Frequency Bar Chart",
+        "text": "Earthquake Monthly Frequency",
         "anchor": "middle",
         "color": "#333333",
         "fontSize": 24

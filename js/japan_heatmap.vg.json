@@ -1,69 +1,47 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/data/jpn_eq_16_18.csv"
+    "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/data/jpn_eq_16_18.csv"
   },
+  "width": "container",
+  "height": 600,
   "transform": [
     { "calculate": "year(datum.time)", "as": "year" },
-    { "filter": "datum.year === year" }
-  ],
-  "params": [
-    {
-      "name": "year",
-      "value": 2016,
-      "bind": {
-        "input": "range",
-        "min": 2016,
-        "max": 2018,
-        "step": 1,
-        "name": "Year"
-      }
-    },
-    {
-      "name": "hover",
-      "select": { "type": "point", "fields": ["longitude", "latitude"] }
-    }
+    { "filter": "datum.depth <= 250" }
   ],
   "title": {
-    "text": "Earthquake Yearly Heatmap",
+    "text": "Magnitude vs Depth",
     "anchor": "middle",
     "color": "#333333",
     "fontSize": 24
   },
-  "mark": {
-    "type": "rect",
-    "tooltip": true
-  },
+  "mark": "rect",
   "encoding": {
     "x": {
-      "field": "longitude",
+      "field": "depth",
       "type": "quantitative",
       "bin": true,
-      "axis": { "title": "Longitude", "format": ".1f", "grid": true }
+      "title": "Depth (km)",
+      "scale": {
+        "domain": [0, 250]
+      }
     },
     "y": {
-      "field": "latitude",
-      "type": "quantitative",
-      "bin": true,
-      "axis": { "title": "Latitude", "format": ".1f", "grid": true }
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "scale": {
+        "domain": [2018, 2017, 2016]
+      }
     },
     "color": {
       "field": "mag",
       "type": "quantitative",
       "aggregate": "max",
+      "title": "Magnitude (Richter scale)",
       "scale": {
-        "scheme": "tealblues",
-        "domain": [2, 8]
-      },
-      "legend": { "title": "Magnitude (Max)" }
-    },
-    "opacity": {
-      "value": 1
+        "domain": [4.4, 8]
+      }
     }
-  },
-  "config": {
-    "scale": { "bandPaddingInner": 0 }
-  },
-  "width": "container",
-  "height": 540
+  }
 }

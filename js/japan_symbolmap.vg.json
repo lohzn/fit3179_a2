@@ -22,11 +22,12 @@
       }
     }
   ],
+  "background": "#77ddff",
 
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/js/ne_2.json",
+        "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/js/ne_2.json",
         "format": {
           "type": "topojson",
           "feature": "ne_10m_admin_0_countries_jpn"
@@ -41,7 +42,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/data/jpn_eq_16_18.csv"
+        "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/data/jpn_eq_16_18.csv"
       },
       "transform": [{ "calculate": "year(datum.time)", "as": "year" }],
       "mark": { "type": "circle", "tooltip": { "content": "data" } },
@@ -86,7 +87,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/js/ne_2.json",
+        "url": "https://raw.githubusercontent.com/lohzn/fit3179_wk9_hw/main/js/ne_2.json",
         "format": { "type": "topojson", "feature": "ne_110m_graticules_5" }
       },
       "mark": { "type": "geoshape", "stroke": "black", "opacity": 0.3 }

@@ -15,79 +15,74 @@
   </head>
   <body>
     <div class="container">
-      <h1>Visualizing Japan's Earthquakes: 2016-2018</h1>
+      <h1>Unearthing Tremors: Analyzing Japan’s Earthquakes (2016-2018)</h1>
       <div id="symbol_map" class="chart"></div>
       <div class="description">
-        <h2>Japan’s Earthquakes: Where and How Big?</h2>
+        <h2><em>Visualizing Earthquake Epicenters in Japan</em></h2>
         <p>
-          This symbol map shows the location and magnitude of significant
-          earthquakes (greater than 4 on the Richter scale) that occurred in
-          Japan from 2016 to 2018. The size of the circle represents the
-          magnitude of the earthquake, while the color represents the depth of
-          the earthquake. The darker the color, the deeper the earthquake. We
-          can see that most of the earthquakes are concentrated along the
-          coastlines of Japan, especially in the south and east regions. This is
-          because Japan is located on the Pacific Ring of Fire, where several
-          tectonic plates meet and cause frequent seismic activity.
+          This symbol map displays
+          <strong>significant earthquakes (magnitude > 4)</strong> in Japan from
+          2016 to 2018. Circle size indicates magnitude, while color represents
+          earthquake depth, from
+          <span style="color: #4be7f4; font-weight: bold">shallow </span> to
+          <span style="color: #264f79; font-weight: bold">deep</span>. Most
+          earthquakes cluster along Japan's coastlines, particularly the south
+          and east regions due to Japan's location on the Pacific Ring of Fire.
         </p>
       </div>
 
       <div class="row">
         <div id="bar_chart" class="chart half"></div>
         <div class="description half" id="idiom2">
-          <h2>Japan’s Monthly Earthquake Frequency: When and How Many?</h2>
+          <h2><em> Frequency of Significant Earthquakes</em></h2>
           <p>
-            This bar chart shows the number of significant earthquakes that
-            occurred in each month combined from 2016 to 2018. We can see that
-            there is no clear seasonal pattern in the frequency of earthquakes,
-            as they occur randomly throughout the year. However, we can notice
-            some peaks and troughs in certain months. For example, September had
-            the highest number of earthquakes (201), followed by November (158)
-            and April (157). These months correspond to some major earthquakes
-            that hit Japan, such as the Tomakomai earthquake in April 2018 and
-            theHokkaido earthquake in September 2018.
+            This bar chart presents the
+            <strong>total number of significant earthquakes each month </strong>
+            from 2016 to 2018. There is no clear seasonal pattern, with
+            earthquakes occurring randomly throughout the year. Some notable
+            peaks include September (201), November (158), and April (157),
+            coinciding with major earthquakes like the Tomakomai earthquake in
+            April 2018 and Hokkaido earthquake in September 2018.
           </p>
         </div>
       </div>
 
       <div class="row">
         <div class="description half" id="idiom3">
-          <h2>Japan’s Yearly Earthquake Frequency: A Colorful Perspective</h2>
+          <h2><em>Unveiling the Magnitude Distribution of Earthquakes</em></h2>
           <p>
-            This heatmap shows another way of visualizing the frequency of
-            significant earthquakes in each month from 2016 to 2018. The color
-            intensity represents the number of earthquakes, with darker colors
-            indicating higher numbers. We can see that this visualization
-            confirms what we observed in the bar chart, that there is no clear
-            seasonal pattern in the frequency of earthquakes, but there are some
-            months with higher or lower numbers of earthquakes. We can also
-            compare the frequency of earthquakes across different years by
-            looking at the rows of the heatmap.
+            The histogram illustrates the distribution of
+            <strong> earthquake magnitudes </strong>
+            in Japan from 2016 to 2018. The x-axis represents magnitude ranges,
+            and the y-axis shows the count of earthquakes falling within each
+            range. The histogram provides an overview of the frequency and
+            distribution of different magnitudes.
           </p>
         </div>
-        <div id="heat_map" class="chart half"></div>
+        <div id="histo_chart" class="chart half"></div>
       </div>
 
-      <div id="line_chart" class="chart"></div>
+      <div id="heat_map" class="chart"></div>
       <div class="description">
-        <h2>Japan’s Earthquake Depth vs Magnitude: How Deep and How Strong?</h2>
+        <h2>
+          <em
+            >Exploring the Correlation Between Earthquake Depth and
+            Magnitude</em
+          >
+        </h2>
         <p>
-          This line chart above shows the relationship between the depth and magnitude
-          of significant earthquakes <span style="color: navy">2016</span>,
-          <span style="color: orange">2017</span> and
-          <span style="color: red">2018</span>. The x-axis represents the depth
-          of the earthquake, while the y-axis represents the magnitude of the
-          earthquake. The color of the line represents the year of the
-          earthquake. We can see that there is a negative correlation between
-          the depth and magnitude of earthquakes, but again it is not very
-          dicernable, meaning that the deeper the earthquake, the lower the
-          magnitude. This is because deeper earthquakes release less energy than
-          shallow earthquakes, as they have to travel through more layers of
-          rock before reaching the surface. Moreover, we can see that there is a
-          lot of congestion towards lower depths, indicating that many
-          earthquakes are closer to the mainland. This implies that they are
-          more dangerous and civilians need to be alert and prepared for
-          potential disasters.
+          The heatmap depicts the correlation between earthquake depth and
+          magnitude over the years. Deeper earthquakes tend to have lower
+          magnitudes, indicating that they release less energy while traveling
+          through multiple rock layers. The heatmap reveals<strong>
+            congestion at lower depths
+          </strong>
+          , highlighting the higher concentration of
+          <strong
+            >potentially dangerous earthquakes closer to the mainland</strong
+          >
+          . Public awareness and preparedness for potential disasters become
+          crucial.
         </p>
       </div>
     </div>
@@ -105,14 +100,14 @@
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
         .catch(console.error);
-      var specVis2 = "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/js/japan_heatmap.vg.json";
-      vegaEmbed("#heat_map", specVis2)
+      var specVis2 = "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/js/japan_histogram.vg.json";
+      vegaEmbed("#histo_chart", specVis2)
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
         .catch(console.error);
-      var specVis3 = "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/js/japan_linechart.vg.json";
-      vegaEmbed("#line_chart", specVis3)
+      var specVis3 = "https://raw.githubusercontent.com/lohzn/fit3179_a2/main/js/japan_heatmap.vg.json";
+      vegaEmbed("#heat_map", specVis3)
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
